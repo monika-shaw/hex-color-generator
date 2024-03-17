@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import rgbToHex from './utils'
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 
 const SingleColor = ({ rgb, weight, index, hexColor }) => {
     const [alert, setAlert] = useState(false)
@@ -14,19 +14,24 @@ const SingleColor = ({ rgb, weight, index, hexColor }) => {
         }, 3000)
         return () => clearTimeout(timeout)
     }, [alert])
-    
+
     return (
-        <Grid
+        <Grid item xs={2}
             className={`color ${index > 10 && 'color-light'}`}
-            style={{ backgroundColor: `rgb(${bcg})` }}
+            style={{ backgroundColor: `rgb(${bcg})`, height: '18vh', textAlign: 'center', padding: '2rem' }}
             onClick={() => {
                 setAlert(true)
                 navigator.clipboard.writeText(hexValue)
             }}
         >
-            <p className='percent-value'>{weight}%</p>
-            <p className='color-value'>{hexValue}</p>
-            {alert && <p className='alert'>copied to clipboard</p>}
+            <Grid item xs={12}>
+                <Typography className='percent-value'>{weight}%</Typography>
+            </Grid>
+            <Grid item xs={12}
+            >   <Typography className='color-value'>{hexValue}</Typography></Grid>
+            <Grid item xs={12}>
+                {alert && <Typography className='alert'>copied to clipboard</Typography>}
+            </Grid>
         </Grid>
     )
 }
