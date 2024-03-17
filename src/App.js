@@ -24,7 +24,7 @@ function App() {
         <>
             <Grid className='container' style={{ padding: '1rem' }}>
                 <Grid item xs={12} style={{ padding: '0rem 1rem' }}>
-                    <Typography style={{ fontSize: '2rem', fontWeight: 'bold' }}>ShadeGen Hex</Typography>
+                    <Typography style={{ fontSize: '2rem', fontWeight: 'bold' }}>Color Shades Generator</Typography>
                 </Grid>
                 <Grid container item xs={12}>
                     <Grid item xs={2} style={{ padding: '1rem' }}>
